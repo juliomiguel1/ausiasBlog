@@ -26,11 +26,12 @@
  * 
  */
 
-var articuloNew = function () {
+var comentarioEdit = function () {
 };
-articuloNew.prototype = new newModule();
-articuloNew.prototype.doEventsLoading = function () {
-    form.getForeign('documento', 'usuario');
-    form.getForeign('documento', 'tipodocumento');
+comentarioEdit.prototype = new editModule();
+comentarioEdit.prototype.doEventsLoading = function () {
+    form.getForeign('comentario','documento');
+    
 };
+
 

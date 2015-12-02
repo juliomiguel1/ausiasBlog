@@ -32,7 +32,7 @@ function fArticuloRoutes() {
     var header = $('#broth_panel_heading');
     var content = $('#broth_content');
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/plist(/:url)").to(function () {
+    Path.map("#/" + strClass + "/articuloplist(/:url)").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
@@ -41,7 +41,7 @@ function fArticuloRoutes() {
         return false;
     });
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/new(/:url)").to(function () {
+    Path.map("#/" + strClass + "/articulonew(/:url)").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
@@ -50,7 +50,7 @@ function fArticuloRoutes() {
         return false;
     });
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/view(/:url)").to(function () {
+    Path.map("#/" + strClass + "/articuloview(/:url)").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);

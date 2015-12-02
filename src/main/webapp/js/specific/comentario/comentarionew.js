@@ -26,11 +26,10 @@
  * 
  */
 
-var articuloNew = function () {
-};
-articuloNew.prototype = new newModule();
-articuloNew.prototype.doEventsLoading = function () {
-    form.getForeign('documento', 'usuario');
-    form.getForeign('documento', 'tipodocumento');
-};
 
+var comentarioNew = function () {
+};
+comentarioNew.prototype = new newModule();
+comentarioNew.prototype.doEventsLoading = function () {
+    form.getForeign('comentario','documento');    
+};
