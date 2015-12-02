@@ -79,16 +79,7 @@ function fDocumentoRoutes() {
         ausiasFLOW.reset();
         ausiasFLOW.initialize(pListModule, content, strClass, 'plist', strParam);
         return false;
-    });
-    //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/plist(/:url)").to(function () {
-        $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
-        header.empty().append(fillDocumentoPageHeader('Articulos'));
-        var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
-        ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloplist, content, strClass, 'plist', strParam);
-        return false;
-    });
+    });    
     //--------------------------------------------------------------------------
     Path.map("#/" + strClass + "/plist_labels_authors_x_ndocs(/:url)").to(function () {
         header.empty().append(fillDocumentoPageHeader('Paginated List'));
