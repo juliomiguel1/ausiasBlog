@@ -28,7 +28,7 @@
 function fArticuloRoutes() {
     var icon = '<i class="fa fa-file-text-o fa-5x"></i>';
     var fillDocumentoPageHeader = _.partial(html.getPageHeader, icon, 'Articulo', _);
-    var strClass = 'articulo';
+    var strClass = 'documento';
     var header = $('#broth_panel_heading');
     var content = $('#broth_content');
 //--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ function fArticuloRoutes() {
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articulonew, content, strClass, 'new', strParam);
+        ausiasFLOW.initialize(articuloNew, content, strClass, 'new', strParam);
         return false;
     });
 //--------------------------------------------------------------------------
@@ -55,8 +55,10 @@ function fArticuloRoutes() {
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloview, content, strClass, 'view', strParam);
+        ausiasFLOW.initialize(articuloView, content, strClass, 'view', strParam);
         return false;
     });
+    
+    
 }
 

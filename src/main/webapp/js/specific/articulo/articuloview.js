@@ -26,4 +26,9 @@
  * 
  */
 
-
+var articuloView = function () {
+    
+};
+articuloView.prototype = new viewModule();
+articuloView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule) {
+    };
