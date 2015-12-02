@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 04-11-2015 a las 01:39:45
+-- Tiempo de generación: 02-12-2015 a las 00:08:54
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.29
 
@@ -72,11 +72,11 @@ CREATE TABLE IF NOT EXISTS `comentario` (
 --
 
 INSERT INTO `comentario` (`id`, `contenido`, `nombreautor`, `id_documento`) VALUES
-(1, 'No me hace mucha gracia que te hagas amigo de mi hermana.', 'Nando Laorden', NULL),
-(2, 'Crea tablas pa la estantería del vino', 'Iván García', NULL),
-(3, 'Allahu Akbar', 'Santiago Ferrandis', NULL),
-(4, 'Normalizao', 'Fernando Cantos', NULL),
-(5, '¿Y la europea?', 'Mariano Rajoy', NULL);
+(1, 'No me hace mucha gracia que te hagas amigo de mi hermana.', 'Nando Laorden', 2),
+(2, 'Crea tablas pa la estantería del vino', 'Iván García', 2),
+(3, 'Allahu Akbar', 'Santiago Ferrandis', 0),
+(4, 'Normalizao', 'Fernando Cantos', 0),
+(5, '¿Y la europea?', 'Mariano Rajoy', 0);
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `documento` (
   `portada` tinyint(1) DEFAULT NULL COMMENT 'Portada',
   `destacado` tinyint(1) DEFAULT NULL COMMENT 'Destacado',
   `id_tipodocumento` int(6) DEFAULT NULL COMMENT 'Tipo'
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `documento`
@@ -105,9 +105,9 @@ CREATE TABLE IF NOT EXISTS `documento` (
 
 INSERT INTO `documento` (`id`, `titulo`, `contenido`, `alta`, `cambio`, `hits`, `id_usuario`, `etiquetas`, `publicado`, `portada`, `destacado`, `id_tipodocumento`) VALUES
 (1, 'drdrdrtttwaaaa', '%3D%20Entrega%20de%20premios%20%3DsffsdfIntroducci%C3%B3n%20*%20ksjdlk%20*%20klk%C3%B1%20*%20k%C3%B1lk%C3%B1l//gdfg//dfgdfwdfgdfdfgdfgdfgdfgdfgdfgggggggggggggg%20dgdfgdfgdg%20dfgdfgdfgdfgddfgdgdfdd', '2014-10-26', '2014-10-26', 1, 0, 'das1a', 1, 1, 1, 0),
-(2, 'doc%20de%20rafa1aaa', '%3DMi%20documento%2001%3D%0D%0A%0D%0A%20...', '2014-09-21', '2014-09-21', 411, 4, 'pepe', 1, 1, 0, 2),
+(2, 'El comandante ha vuelto', 'El comandante, al que creíamos muerto, resultó regresar diciendo que estaba de parranda.', '2014-09-21', '2014-09-21', 411, 4, 'pepe', 1, 1, 0, 2),
 (3, 'wwww1111', 'ggtttqqqd%20asdasdas%20das', '2014-09-28', '2014-09-28', 22, 5, 'pepe', 1, 1, 0, 3),
-(4, 'sss', 'www', '2014-09-11', '2014-09-11', 0, 3, 'pepe', 1, 1, 0, 2),
+(4, 'La naturaleza en Castelló de la Ribera', 'La naturaleza en esta zona es muy frondosa y muy verde.', '2014-09-11', '2014-09-11', 0, 3, 'pepe', 1, 1, 0, 2),
 (5, 'DFGDFG', 'HDFHDF', '2014-09-16', '2014-09-16', 1, 2, 'pepe', 1, 1, 0, 5),
 (6, 'Mi doc', '[http://github.com|Github] \r\nhola =miau= [http://intel.com|Intel] \r\n hola ====jujujuj==== [http://google.es|Google]\r\n\r\n\r\n=rafa=\r\n\r\nHolaaaaaa\r\n\r\n==segundo titulo==\r\n\r\n<table class="table">\r\n<th><td>hola</td></th>\r\n</table>', '2013-11-19', NULL, 6, 5, 'rafa', NULL, NULL, NULL, NULL),
 (7, 'doc de rafa', '=Mi documento 01=\r\n\r\n[http://materialesdaw-raznar.rhcloud.com|metriales daw] de rafa', '2013-11-20', NULL, 4, 4, 'rafa', NULL, NULL, NULL, NULL),
@@ -122,16 +122,16 @@ INSERT INTO `documento` (`id`, `titulo`, `contenido`, `alta`, `cambio`, `hits`, 
 (26, 'c', 'sd', '2014-09-21', '2014-09-21', 2, 2, 'das', 1, 1, 1, 7),
 (27, 'c', 'sd', '2014-09-21', '2014-09-21', 2, 2, 'das', 1, 1, 1, 7),
 (28, 'c', 'sd', '2014-09-21', '2014-09-21', 2, 2, 'das', 1, 1, 1, 7),
-(29, 'dgdfgdfgdf', 'gdf', '2014-09-21', '2014-09-21', 555, 1, 'rafa', 0, 0, 0, 2),
+(29, 'Los coches más rápidos', 'Los coches más rápidos del mundo se reúnen en una concentración para competir y ver cual es el más veloz.', '2014-09-21', '2014-09-21', 555, 1, 'rafa', 0, 0, 0, 2),
 (35, 'das', 'asdasd%20asdasd', '2014-09-28', '2014-09-28', 111, 2, 'ddd', 1, 1, 1, 10),
-(36, 'dasd', 'asdas%20', '2014-09-28', '2014-09-28', 22, 1, 'ddd', 0, 1, 0, 2),
+(36, 'Feria del embutido Requena', 'La feria del embutido en Requena se celebrará del 12 al 14 de Febrero.', '2014-09-28', '2014-09-28', 22, 1, 'ddd', 0, 1, 0, 2),
 (37, 'ads', 'asd', '2014-09-28', '2014-09-28', 2, 1, 'das', 0, 0, 0, 3),
 (38, 'fd', 'fsdfsd', '2014-09-28', '2014-09-28', 2, 1, 'das', 0, 0, 0, 3),
 (39, 'fadf', 'sdf', '2014-09-28', '2014-09-28', 2222, 1, 'ana', 1, 1, 0, 3),
 (41, 'fsd', 'sdf', '2014-09-28', '2014-09-28', 3, 1, 'ana', 0, 0, 0, 1),
 (45, 'sdf', 'sdfaaaaaaaaaa', '2014-09-30', '2014-09-30', 3333, 1, 'fdsfsdf', 1, 1, 0, 1),
 (46, 'hfghf', 'hf', '2014-10-19', '2014-10-19', 4, 1, 'hfg', 1, 1, 1, 6),
-(47, 'hfgh', 'fhgh', '2014-10-24', '2014-10-24', 55, 1, '12%20rrr', 1, 1, 1, 2),
+(47, 'Lucas se retira', 'El famoso piloto de carreras de autovías Lucas, se retira tras pegarle fuego al Pegasus.', '2014-10-24', '2014-10-24', 55, 1, '12%20rrr', 1, 1, 1, 2),
 (48, 'gggggggg', 'hhhhhhhhhhh', '2014-10-25', '2014-10-25', 333, 2, 'gfdgdf%20rrrr', 1, 1, 1, 5),
 (49, 'dfaaaaaaaaaaag', 'aaaaaaaaadfg', '2015-10-08', '2015-10-08', 1, 0, 'aaaaaaaaaaaaaaa', 0, 0, 1, 0),
 (50, 'sfdf', 'sdfs', '2015-10-08', '2015-10-08', 1, 0, 'fsdfs', 0, 0, 0, 0),
@@ -174,7 +174,8 @@ INSERT INTO `documento` (`id`, `titulo`, `contenido`, `alta`, `cambio`, `hits`, 
 (87, 'r', 'r', '2015-10-11', '2015-10-11', 3, 0, 'r', 1, 0, 0, 0),
 (88, 'Pregunta uno', 'Cuestionario prueba', '2015-11-03', '2015-11-03', 0, 7, 'who, is, the, best', 0, 1, 0, 12),
 (89, 'Pregunta 2', 'Esto es una pregunta?', '2015-11-03', '2015-11-03', NULL, 6, 'pregunta, tocapelotas', 0, 1, 0, 12),
-(90, 'hola adios', 'estas o no?', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(90, 'hola adios', 'estas o no?', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(91, 'Hoy DAW celebra una comida.', 'El "retorno" del Comandante ha dado ---- IIIIVAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -388,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `tipodocumento` (
   `id` int(6) NOT NULL,
   `descripcion` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `privado` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tipodocumento`
@@ -396,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `tipodocumento` (
 
 INSERT INTO `tipodocumento` (`id`, `descripcion`, `privado`) VALUES
 (1, 'oferta de trabajo', 1),
-(2, 'currículum', 1),
+(2, 'articulo', 1),
 (3, 'actividad', 1),
 (4, 'experiencia', 1),
 (5, 'formación', 1),
@@ -575,7 +576,7 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT de la tabla `documento`
 --
 ALTER TABLE `documento`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'Num.',AUTO_INCREMENT=91;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'Num.',AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT de la tabla `documentocategoriaarticulo`
 --
@@ -610,7 +611,7 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `tipodocumento`
 --
 ALTER TABLE `tipodocumento`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tipousuario`
 --
@@ -621,8 +622,6 @@ ALTER TABLE `tipousuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT COMMENT 'Identificador',AUTO_INCREMENT=31;
-
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
