@@ -25,12 +25,12 @@
  * THE SOFTWARE.
  * 
  */
-var blogList = function () {
+var blogList = function() {
 };
 blogList.prototype = new listModule();
 
 
-blogList.prototype.render = function () {
+blogList.prototype.render = function() {
 
     var cabecera = "";
     cabecera += "<div>";
@@ -94,7 +94,9 @@ blogList.prototype.render = function () {
         //lado izquierdo
         blog += "<div class=\"col-md-7 col-md-offset-1\">";
         ////titulo
-        blog += "<div class=\"titulo\">"
+        blog += "<div class=\"titulo\">";
+        blog += '<a title="' + jsonData.message.page.message[i].titulo + '" href="http://localhost:8081/ausiasblog/#/documento/view/' + jsonData.message.page.message[i].id + '"><div class = "hover"><img src="images/imagen' + jsonData.message.page.message[i].id + '.jpg" alt="' + jsonData.message.page.message[i].titulo + '" class="img-responsive" /></div></a>';
+
         blog += "<h2>";
         blog += titulo;
         blog += "</h2>";
@@ -118,15 +120,15 @@ blogList.prototype.render = function () {
         blog += "<div class=\"leermas\">";
         blog += "<a href=\"http://localhost:8081/ausiasblog/#/blog/view/" + jsonData.message.page.message[i].id + "\">Leer más...</a>";
         blog += "</div>";
-        if(11 == jsonData.message.page.message[i].id_usuario){
+        if (11 == jsonData.message.page.message[i].id_usuario) {
             blog += "<div class=\"editar\">";
-            
-            blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/edit/"+jsonData.message.page.message[i].id+"\" class=\"btn btn-warning\" role=\"button\">Editar</a>";
-            blog +="&nbsp";
-            blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/remove/"+jsonData.message.page.message[i].id+"\" class=\"btn btn-danger\" role=\"button\">Eliminar</a>";
+
+            blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/edit/" + jsonData.message.page.message[i].id + "\" class=\"btn btn-warning\" role=\"button\">Editar</a>";
+            blog += "&nbsp";
+            blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/remove/" + jsonData.message.page.message[i].id + "\" class=\"btn btn-danger\" role=\"button\">Eliminar</a>";
             blog += "</div>";
         }
-        
+
         //fin leer mas
 
         blog += "</div>";

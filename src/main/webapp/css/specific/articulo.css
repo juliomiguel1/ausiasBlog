@@ -167,6 +167,12 @@ a{
     //border: 2px solid black;
 }
 
+.hover > img {
+    height: 300px;
+    width: 650px;
+    margin-top: 25px;
+}
+
 /*@media screen and (max-width: 770px) {
     .entradas {
         width: 100%;

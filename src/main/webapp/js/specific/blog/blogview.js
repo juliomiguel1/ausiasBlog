@@ -26,11 +26,11 @@
  * 
  */
 
-var blogView = function () {
+var blogView = function() {
 
 };
 blogView.prototype = new viewModule();
-blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule) {
+blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule) {
     var cabecera = "";
     cabecera += "<div >";
     cabecera += "<div class=\"cabecera\">";
@@ -49,18 +49,18 @@ blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule
     var comentario = "";
     var fecha = "";
     var tags = "";
-    
-        blog += "<div class=\"row\">";
-        blog += "<div class=\"col-md-11 col-md-offset-1\">";
-        blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
-        blog += "</div>";
-        blog += "</div>";
-    
-  //  blog += "<div class=\"container\">"
+
+    blog += "<div class=\"row\">";
+    blog += "<div class=\"col-md-11 col-md-offset-1\">";
+    blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new/usuario=" + jsonDataViewModule.bean.message[0].id_login + "&documento=" + jsonDataViewModule.bean.message[0].id_documento + "\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
+    blog += "</div>";
+    blog += "</div>";
+
+    //  blog += "<div class=\"container\">"
     for (var i = 0; i < jsonDataViewModule.bean.message.length; i++) {
         blog += "<div class=\"row\">";
         blog += "<div class=\"col-md-7 col-md-offset-1\">";
-        if (blogpintado == 0) {            
+        if (blogpintado == 0) {
             blog += "<div>";
             //titulo
             blog += "<div class=\"titulo\">"
@@ -90,9 +90,9 @@ blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule
             blogpintado++;
         }
         //fin del col-md-7
-        
-        
-        
+
+
+
         blog += "<div class= \"comentario\">";
         comentario = jsonDataViewModule.bean.message[i].comentario;
         blog += "<p>";
@@ -111,7 +111,7 @@ blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule
         blog += "</div>";
         blog += "</br>";
         blog += "</div>";
-        
+
         //fin del row
         blog += "</div>";
     }
