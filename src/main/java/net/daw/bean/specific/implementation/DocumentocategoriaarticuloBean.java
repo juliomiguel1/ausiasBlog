@@ -57,15 +57,6 @@ public class DocumentocategoriaarticuloBean extends BeanGenImpl implements BeanI
     )
     private Integer id = 0; //siempre inicializar los id a 0
 
-    @Expose
-    @MethodMetaInformation(
-            UltraShortName = "Desc.",
-            ShortName = "Descripción",
-            Description = "Descripción de la categoría",
-            Type = MetaEnum.FieldType.String
-    )
-    private String descripcion;
-
     @Expose(serialize = false)
     @MethodMetaInformation(
             UltraShortName = "Documento",
@@ -116,14 +107,6 @@ public class DocumentocategoriaarticuloBean extends BeanGenImpl implements BeanI
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public Integer getId_documento() {

@@ -51,15 +51,13 @@ public class DocumentocategoriaarticuloDao extends TableDaoGenImpl<Documentocate
         super(pooledConnection);
     }
     
-    
-    
     @Override
     public ArrayList<DocumentocategoriaarticuloBean> getAll(ArrayList<FilterBeanHelper> alFilter, HashMap<String, String> hmOrder) throws Exception {
 
         MysqlDataSpImpl oMysql = new MysqlDataSpImpl(oConnection);
         strSqlSelectDataOrigin += SqlBuilder.buildSqlWhere(alFilter);
         strSqlSelectDataOrigin += SqlBuilder.buildSqlOrder(hmOrder);
-        ArrayList<DocumentocategoriaarticuloBean> alDocumentocategoriaarticulo = new ArrayList<>();
+        ArrayList<DocumentocategoriaarticuloBean> alDocCatArt = new ArrayList<>();
         try {
             ResultSet result = oMysql.getAllSql(strSqlSelectDataOrigin);
             if (result != null) {
@@ -67,32 +65,37 @@ public class DocumentocategoriaarticuloDao extends TableDaoGenImpl<Documentocate
                     DocumentocategoriaarticuloBean oDocumentocategoriaarticuloBean = new DocumentocategoriaarticuloBean();
                     oDocumentocategoriaarticuloBean.setId(result.getInt("id"));
                     oDocumentocategoriaarticuloBean.setId_documento(result.getInt("id_documento"));
+                    oDocumentocategoriaarticuloBean.setId_categoriaarticulo(result.getInt("id_categoriaarticulo"));
 
-                    //crear un dao de documento
                     DocumentoDao oDocumentoDao = new DocumentoDao(oConnection);
-                    //un pojo de documento con elid de documento
+                    CategoriaarticuloDao oCategoriaarticuloDao = new CategoriaarticuloDao(oConnection);
+                   
                     DocumentoBean oDocumentoBean = new DocumentoBean();
+                    CategoriaarticuloBean oCategoriaarticuloBean = new CategoriaarticuloBean();
                     oDocumentoBean.setId(result.getInt("id_documento"));
+                    oCategoriaarticuloBean.setId(result.getInt("id_categoriaarticulo"));
 
                     oDocumentoBean = oDocumentoDao.get(oDocumentoBean, 2);
-                    //rellenar el pojo de documento con el dao
-                    //meter el pojo relleno a la pregunta
-                    GroupBeanImpl oGroupBeanImpl = new GroupBeanImpl();
-                    oGroupBeanImpl.setBean(oDocumentoBean);
-                    oGroupBeanImpl.setMeta(oDocumentoDao.getmetainformation());
-                    oDocumentocategoriaarticuloBean.setObj_documento(oGroupBeanImpl);
+                    oCategoriaarticuloBean = oCategoriaarticuloDao.get(oCategoriaarticuloBean, 2);
+                  
+                    GroupBeanImpl oGroupBeanImplDoc = new GroupBeanImpl();
+                    oGroupBeanImplDoc.setBean(oDocumentoBean);
+                    oGroupBeanImplDoc.setMeta(oDocumentoDao.getmetainformation());
+                    oDocumentocategoriaarticuloBean.setObj_documento(oGroupBeanImplDoc);
+                    
+                    GroupBeanImpl oGroupBeanImplCat = new GroupBeanImpl();                    
+                    oGroupBeanImplCat.setBean(oCategoriaarticuloBean);                    
+                    oGroupBeanImplCat.setMeta(oCategoriaarticuloDao.getmetainformation());                    
+                    oDocumentocategoriaarticuloBean.setObj_categoriaarticulo(oGroupBeanImplCat);
 
-                    //sacar del dao de documento los metadatos de documento
-                    //meterlos en el pojo de la pregunta tambien
-                    oDocumentocategoriaarticuloBean.setDescripcion(result.getString("descripcion"));
-                    alDocumentocategoriaarticulo.add(oDocumentocategoriaarticuloBean);
+                    alDocCatArt.add(oDocumentocategoriaarticuloBean);
                 }
             }
         } catch (Exception ex) {
             throw new Exception(this.getClass().getName() + ":get ERROR: " + ex.getMessage());
         }
 
-        return alDocumentocategoriaarticulo;
+        return alDocCatArt;
 
     }
 }

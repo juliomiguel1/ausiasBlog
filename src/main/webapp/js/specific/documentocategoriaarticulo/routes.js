@@ -45,7 +45,7 @@ function fDocCatArtRoutes() {
         header.empty().append(fillDocumentoPageHeader('New'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(newModule, content, strClass, 'new', strParam);
+        ausiasFLOW.initialize(documentocategoriaarticuloNew, content, strClass, 'new', strParam);
         return false;
     });
     //--------------------------------------------------------------------------    
@@ -72,8 +72,13 @@ function fDocCatArtRoutes() {
         ausiasFLOW.initialize(pListModule, content, strClass, 'plist', strParam);
         return false;
     });
-    //--------------------------------------------------------------------------  
-
-
+    //--------------------------------------------------------------------------
+    Path.map("#/" + strClass + "/list(/:url)").to(function () {
+        header.empty().append(fillDocumentoPageHeader('List'));
+        var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
+        ausiasFLOW.reset();
+        ausiasFLOW.initialize(listModule, content, strClass, 'list', strParam);
+        return false;
+    });
 
 }
