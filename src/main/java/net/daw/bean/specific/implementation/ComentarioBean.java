@@ -97,7 +97,29 @@ public class ComentarioBean extends BeanGenImpl implements BeanInterface {
             MyIdName = "id_documento"
     )
     private GroupBeanImpl obj_documento = null;
+    
+    @Expose(serialize = false)
+    @MethodMetaInformation(
+            UltraShortName = "Usuario",
+            ShortName = "Usuario",
+            Description = "Identificador de Usuario",
+            IsIdForeignKey = true,
+            ReferencesTable = "usuario",
+            Type = MetaEnum.FieldType.Integer
+    )
+    private Integer id_usuario = 0; //important zero-initialize foreign keys
 
+    @Expose(deserialize = false)
+    @MethodMetaInformation(
+            UltraShortName = "Usuario",
+            ShortName = "Usuario",
+            Description = "Referencia al usuario propietario",
+            IsObjForeignKey = true,
+            ReferencesTable = "usuario",
+            MyIdName = "id_usuario"
+    )
+    private GroupBeanImpl obj_usuario = null;
+    
     public Integer getId() {
         return id;
     }
@@ -136,6 +158,25 @@ public class ComentarioBean extends BeanGenImpl implements BeanInterface {
 
     public void setObj_documento(GroupBeanImpl obj_documento) {
         this.obj_documento = obj_documento;
+    }
+
+  
+    public Integer getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+  
+    public GroupBeanImpl getObj_usuario() {
+        return obj_usuario;
+    }
+
+    
+    public void setObj_usuario(GroupBeanImpl obj_usuario) {
+        this.obj_usuario = obj_usuario;
     }
 
 }

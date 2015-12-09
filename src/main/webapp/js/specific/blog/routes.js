@@ -25,37 +25,38 @@
  * THE SOFTWARE.
  * 
  */
-function fArticuloRoutes() {
-    var icon = '<i class="fa fa-file-text-o fa-5x"></i>';
-    var fillDocumentoPageHeader = _.partial(html.getPageHeader, icon, 'Articulo', _);
-    var strClass = 'documento';
+function fBlogRoutes() {
+    var icon = '';
+    var fillDocumentoPageHeader = _.partial(html.getPageHeader, icon, 'Blog', _);
+    var strClass = 'blog';
     var header = $('#broth_panel_heading');
     var content = $('#broth_content');
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/articuloplist(/:url)").to(function () {
+   Path.map("#/" + strClass + "/list(/:url)").to(function () {
+       
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
-        header.empty().append(fillDocumentoPageHeader('Articulos'));
+      //  header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloplist, content, strClass, 'plist', strParam);
+        ausiasFLOW.initialize(blogList, content, strClass, 'bloglist', strParam);
         return false;
     });
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/articulonew(/:url)").to(function () {
+ /*   Path.map("#/" + strClass + "/articulonew(/:url)").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
         ausiasFLOW.initialize(articuloNew, content, strClass, 'new', strParam);
         return false;
-    });
+    });*/
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/articuloview(/:url)").to(function () {
+    Path.map("#/" + strClass + "/view/:id").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
-        header.empty().append(fillDocumentoPageHeader('Articulos'));
+      //  header.empty().append(fillDocumentoPageHeader('View'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloView, content, strClass, 'view', strParam);
+        ausiasFLOW.initialize(blogView, content, strClass, 'blogview', strParam);
         return false;
     });
     

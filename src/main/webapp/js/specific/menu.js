@@ -121,7 +121,7 @@ appMenu = function () {
                     dom.ul('class="dropdown-menu" role="menu"',
                             dom.li('class="dropdown-header"', 'Blog') +
                             dom.li('',
-                                    dom.a('href="#/documento/articuloplist/page=1&rpp=10&vf=10&systemfilter=obj_tipodocumento&systemfilteroperator=equals&systemfiltervalue=2"',
+                                    dom.a('href="#/blog/list"',
                                             dom.i('class="fa fa-fw fa-power-off"', '') +
                                             'Blog'
                                             )

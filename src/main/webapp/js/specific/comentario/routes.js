@@ -33,12 +33,12 @@ function fComentarioRoutes() {
     var header = $('#broth_panel_heading');
     var content = $('#broth_content');
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/list(/:url)").to(function () {
+    Path.map("#/" + strClass + "/edit(/:url)").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
         header.empty().append(fillDocumentoPageHeader('Comentario'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloplist, content, strClass, 'plist', strParam);
+        ausiasFLOW.initialize(comentarioEdit, content, strClass, 'edit', strParam);
         return false;
     });
 //--------------------------------------------------------------------------
@@ -47,16 +47,16 @@ function fComentarioRoutes() {
         header.empty().append(fillDocumentoPageHeader('Comentario'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloNew, content, strClass, 'new', strParam);
+        ausiasFLOW.initialize(comentarioNew, content, strClass, 'new', strParam);
         return false;
     });
 //--------------------------------------------------------------------------
-    Path.map("#/" + strClass + "/view(/:url)").to(function () {
+    Path.map("#/" + strClass + "/remove/:id").to(function () {
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
-        header.empty().append(fillDocumentoPageHeader('Comentario'));
+        header.empty().append(fillDocumentoPageHeader('Remove'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
-        ausiasFLOW.initialize(articuloView, content, strClass, 'view', strParam);
+        ausiasFLOW.initialize(removeModule, content, strClass, 'remove', strParam);
         return false;
     });
 

@@ -34,18 +34,28 @@ THE SOFTWARE.
     padding: 0;
     margin: 0;
 }
-body {
-    background: grey;    
-    width: 100%;
-    height: 100%;
-    color: darkgreen;
-    
-}
+
 .entradas {
     border: 2px solid grey;
     width: 65%;
     background-color: #C0C0C0;
-
+    
+}
+.columnaderecha{
+    
+    width: 100%;
+    position: absolute;
+    
+    margin-top:50px;
+}
+.imagen{
+    border: 2px solid black;
+    width: 100%;
+    clear: both;
+    margin-top:50px;
+    float: right;
+    height: 300px;
+    
 }
 .blog {
     margin: 3%;
@@ -60,15 +70,14 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
 .titulo {
-    border-bottom: 1px solid black;
-    text-align: center;
-    font-size: 140%;
+    //  border-bottom: 1px solid black;
+    //  text-align: center;
+    // font-size: 140%;
     font-weight: bold;
+    color: black;
 
 }
-.contenido {
-    margin: 2%;    
-}
+
 .datos {
     text-align: right;
     margin: 1%;
@@ -87,7 +96,78 @@ body {
     text-align: center;    
 }
 
-@media screen and (max-width: 770px) {
+.comentario {
+    border: 2px solid rgb(238,238,238);
+    padding: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.etiquetas{
+    margin-bottom: 0px;
+    float:left;
+}
+
+.autor{
+    margin-bottom: 0px;
+    float:right;
+}
+
+.editar{
+    float: right;
+
+
+}
+a{
+    color: blue;
+}
+
+.entrada{
+    clear: both;
+    padding-bottom: 30px;
+}
+
+.panel-heading{
+    //  background: url(../../images/images/cabecera.png)no-repeat;
+    // background-size: 100% 300px;
+    background: #333 !important;
+    height: 220px; 
+    overflow: hidden;
+}
+
+.cabecera{
+    padding-top: 40px;
+    width: 80%;
+    margin: auto;
+    font-size: 30px;
+    color: gold;
+    border-bottom: 4px solid gold;
+}
+
+
+.interno {
+    font-size: 60px;
+    color: gold;
+    width: 80%;
+    margin: auto;
+}
+
+.container{
+    margin:0;
+    padding: 0;
+    clear: both;
+}
+
+.row{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    clear: both;
+    //border: 2px solid black;
+}
+
+/*@media screen and (max-width: 770px) {
     .entradas {
         width: 100%;
         float: left;
@@ -95,4 +175,4 @@ body {
     .buscador {
         float: left;
     }
-}
+}*/

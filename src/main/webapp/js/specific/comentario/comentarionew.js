@@ -31,5 +31,7 @@ var comentarioNew = function () {
 };
 comentarioNew.prototype = new newModule();
 comentarioNew.prototype.doEventsLoading = function () {
-    form.getForeign('comentario','documento');    
+    form.getForeign('comentario','documento');
+    form.getForeign('comentario','usuario');
+    
 };
