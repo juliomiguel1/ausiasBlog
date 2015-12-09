@@ -52,7 +52,7 @@ blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule
     
         blog += "<div class=\"row\">";
         blog += "<div class=\"col-md-11 col-md-offset-1\">";
-        blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
+        blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new/usuario="+jsonDataViewModule.bean.message[0].id_login+"&documento="+jsonDataViewModule.bean.message[0].id_documento+"\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
         blog += "</div>";
         blog += "</div>";
     
