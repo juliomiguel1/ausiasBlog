@@ -58,7 +58,7 @@ public class BlogDao extends TableDaoGenImpl<BlogBean> {
         
      //   int hola = cantidad;
         if (oDocumentoBean.getId() > 0) {
-            ResultSet result = oMysql.getAllSql("SELECT d.id id_documento, d.titulo, d.contenido entrada, d.id_usuario id_usuario, d.etiquetas, d.hits,c.id id_comentario, c.contenido comentario, c.nombreautor, d.alta, cat.id id_categoria, cat.nombre nombre_cat, cat.descripcion descripcion_cat FROM documento d, comentario c, documentocategoriaarticulo dca, categoriaarticulo cat WHERE d.id = c.id_documento AND dca.id_categoriaarticulo= cat.id AND d.id = dca.id_documento AND d.id=" + oDocumentoBean.getId());
+            ResultSet result = oMysql.getAllSql("SELECT d.id id_documento, d.titulo, d.contenido entrada, d.id_usuario id_usuario, d.etiquetas, d.hits,c.id id_comentario, c.id_usuario usuariocomentario, c.contenido comentario, c.nombreautor, d.alta, cat.id id_categoria, cat.nombre nombre_cat, cat.descripcion descripcion_cat FROM documento d, comentario c, documentocategoriaarticulo dca, categoriaarticulo cat WHERE d.id = c.id_documento AND dca.id_categoriaarticulo= cat.id AND d.id = dca.id_documento AND d.id=" + oDocumentoBean.getId());
             if (result != null) {
                 while (result.next()) {
                     BlogBean oBlogBean= new BlogBean();
@@ -75,6 +75,7 @@ public class BlogDao extends TableDaoGenImpl<BlogBean> {
                     oBlogBean.setNombre_cat(result.getString("nombre_cat"));
                     oBlogBean.setDescripcion_cat(result.getString("descripcion_cat"));
                     oBlogBean.setId_usuario(result.getInt("id_usuario"));
+                    oBlogBean.setUsuariocomentario(result.getInt("usuariocomentario"));
                     oBlogBean.setId_login(id_usuario);
                     alBlog.add(oBlogBean);
                 }

@@ -83,7 +83,7 @@ blogList.prototype.render = function() {
     if (11 == jsonData.message.page.message[0].id_usuario) {
         blog += "<div class=\"row\">";
         blog += "<div class=\"col-md-11 col-md-offset-1\">";
-        blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/new/usuario="+jsonData.message.page.message[0].id_usuario+"tipodocumento=2\" class=\"btn btn-success\" role=\"button\">Crear Documento</a>&nbsp";
+        blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/new/usuario="+jsonData.message.page.message[0].id_usuario+"&tipodocumento=2\" class=\"btn btn-success\" role=\"button\">Crear Documento</a>&nbsp";
         blog += "<a href=\"http://localhost:8081/ausiasblog/#/documentocategoriaarticulo/new\" class=\"btn btn-success\" role=\"button\">Asignar Categoría</a>";
         
         blog += "</div>";

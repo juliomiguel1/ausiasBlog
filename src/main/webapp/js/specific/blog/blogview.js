@@ -109,9 +109,15 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
         blog += tags;
         blog += "</div>";
         blog += "</div>";
+       
+        if(jsonDataViewModule.bean.message[i].usuariocomentario === jsonDataViewModule.bean.message[i].id_usuario){
+            
+            blog += "<div class=\"editarcomentario\">";
+            blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/edit/" + jsonDataViewModule.bean.message[i].id_comentario + "\">Editar...</a>";
+            blog += "</div>";
+        }
         blog += "</br>";
         blog += "</div>";
-
         //fin del row
         blog += "</div>";
     }

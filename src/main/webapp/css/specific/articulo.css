@@ -125,6 +125,10 @@ THE SOFTWARE.
 
 
 }
+.editarcomentario{
+    clear:both;
+}
+
 a{
     color: blue;
 }

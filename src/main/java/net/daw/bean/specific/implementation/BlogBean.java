@@ -40,7 +40,7 @@ import net.daw.helper.statics.MetaEnum;
  * @author juliomiguel
  */
 @SelectSourceMetaInformation(
-        SqlSelect = "SELECT d.id id_documento, d.titulo, d.contenido entrada, d.id_usuario id_usuario, d.etiquetas, d.hits,c.id id_comentario, c.contenido comentario, c.nombreautor, d.alta, cat.id id_categoria, cat.nombre nombre_cat, cat.descripcion descripcion_cat FROM documento d, comentario c, documentocategoriaarticulo dca, categoriaarticulo cat WHERE d.id = c.id_documento AND dca.id_categoriaarticulo= cat.id AND d.id = dca.id_documento",
+        SqlSelect = "SELECT d.id id_documento, d.titulo, d.contenido entrada, d.id_usuario id_usuario, d.etiquetas, d.hits,c.id id_comentario, c.id_usuario usuarioComentario, c.contenido comentario, c.nombreautor, d.alta, cat.id id_categoria, cat.nombre nombre_cat, cat.descripcion descripcion_cat FROM documento d, comentario c, documentocategoriaarticulo dca, categoriaarticulo cat WHERE d.id = c.id_documento AND dca.id_categoriaarticulo= cat.id AND d.id = dca.id_documento",
         Description = "Articulo"
 )
 
@@ -122,6 +122,16 @@ public class BlogBean extends BeanGenImpl implements BeanInterface {
     )
     private Integer id_comentario = 0;
 
+     @Expose
+    @MethodMetaInformation(
+            UltraShortName = "Iden.",
+            ShortName = "Iden. Heredado",
+            Description = "Número Identificador Comentario",
+            Type = MetaEnum.FieldType.Integer,
+            DefaultValue = "0"
+    )
+    private Integer usuariocomentario = 0;
+    
     @Expose
     @MethodMetaInformation(
             UltraShortName = "Cont.",
@@ -383,6 +393,20 @@ public class BlogBean extends BeanGenImpl implements BeanInterface {
      */
     public void setId_login(Integer id_login) {
         this.id_login = id_login;
+    }
+
+    /**
+     * @return the usuariocomentario
+     */
+    public Integer getUsuariocomentario() {
+        return usuariocomentario;
+    }
+
+    /**
+     * @param usuariocomentario the usuariocomentario to set
+     */
+    public void setUsuariocomentario(Integer usuariocomentario) {
+        this.usuariocomentario = usuariocomentario;
     }
 
 }
