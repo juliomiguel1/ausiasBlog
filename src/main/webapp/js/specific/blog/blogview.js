@@ -110,7 +110,7 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
         blog += "</div>";
         blog += "</div>";
        
-        if(jsonDataViewModule.bean.message[i].usuariocomentario === jsonDataViewModule.bean.message[i].id_usuario){
+        if(jsonDataViewModule.bean.message[i].usuariocomentario === jsonDataViewModule.bean.message[i].id_login){
             
             blog += "<div class=\"editarcomentario\">";
             blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/edit/" + jsonDataViewModule.bean.message[i].id_comentario + "\">Editar...</a>";
