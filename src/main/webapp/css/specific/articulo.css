@@ -57,6 +57,10 @@ THE SOFTWARE.
     height: 300px;
     
 }
+
+.imagen > img {
+    height: 100%;
+}
 .blog {
     margin: 3%;
     border: 1px solid black;  
