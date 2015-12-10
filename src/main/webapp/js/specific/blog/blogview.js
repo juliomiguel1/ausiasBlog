@@ -76,7 +76,7 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
             blog += "</p>";
             blog += "</div>";
             blog += "</br>";
-            blog += "<div class=\"entrada\">";
+            blog += "<div class=\"entrada1\">";
             blog += "<h4>";
             entrada = jsonDataViewModule.bean.message[i].entrada;
             blog += entrada;

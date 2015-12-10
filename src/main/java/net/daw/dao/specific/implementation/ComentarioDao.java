@@ -37,6 +37,7 @@ import net.daw.bean.specific.implementation.ComentarioBean;
 import net.daw.bean.specific.implementation.DocumentoBean;
 import net.daw.dao.generic.implementation.TableDaoGenImpl;
 import net.daw.data.specific.implementation.MysqlDataSpImpl;
+import net.daw.helper.statics.ExceptionBooster;
 import net.daw.helper.statics.FilterBeanHelper;
 import net.daw.helper.statics.SqlBuilder;
 
@@ -95,4 +96,40 @@ public class ComentarioDao extends TableDaoGenImpl<ComentarioBean> {
         return alComentarios;
 
     }
+    
+        public ComentarioBean set(ComentarioBean oComentarioBean, int id){
+        try {
+            Boolean isNew = false;
+
+            if(id == oComentarioBean.getId_usuario()){
+            
+            if (oComentarioBean.getId() == 0) {
+                oComentarioBean.setId(oMysql.insertOne(strTableOrigin));
+                isNew = true;
+            }
+            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "contenido", oComentarioBean.getContenido());
+            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "id_documento", oComentarioBean.getId_documento().toString());
+            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "id_usuario", oComentarioBean.getId_usuario().toString());
+            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "nombreAutor", oComentarioBean.getNombreautor());
+//            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "firma", oComentarioBean.get);
+//            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "skin", oComentarioBean.getSkin());
+//            String prueba = oComentarioBean.getPassword();
+
+//            if (isNew == false) {
+//                if (oComentarioBean.getId() != 0 ) {
+//                     || oComentarioBean.getPassword().equals("")
+//                    oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "password", oMysql.getOne(strTableOrigin, "password", oComentarioBean.getId()));
+//                } else {
+//                    oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "password", oComentarioBean.getPassword());
+//                }
+//            } else {
+//                oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "password", oComentarioBean.getPassword());
+//            }
+            }
+        } catch (Exception ex) {
+            ExceptionBooster.boost(new Exception(this.getClass().getName() + ":set ERROR: " + ex.getMessage()));
+        }
+        return oComentarioBean;
+    }
 }
+

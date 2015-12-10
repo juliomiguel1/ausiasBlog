@@ -132,7 +132,18 @@ a{
 .entrada{
     clear: both;
     padding-bottom: 30px;
+    text-align: justify;
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
+
+.entrada1{
+    clear: both;
+    padding-bottom: 30px;
+    text-align: justify;
+}
+
 
 .panel-heading{
     //  background: url(../../images/images/cabecera.png)no-repeat;

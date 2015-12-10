@@ -55,7 +55,6 @@ blogList.prototype.render = function() {
     var miarray = new Array();
     var miarraynuevo = new Array();
     miarraynuevo[0] = jsonData.message.page.message[0].etiquetas;
-    
     var y = 0;
     //  blog += "<div class=\"container\">"
     for (var i = 0; i < jsonData.message.page.message.length; i++) {
@@ -84,10 +83,12 @@ blogList.prototype.render = function() {
     if (11 == jsonData.message.page.message[0].id_usuario) {
         blog += "<div class=\"row\">";
         blog += "<div class=\"col-md-11 col-md-offset-1\">";
-        blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/new\" class=\"btn btn-success\" role=\"button\">Crear Documento</a>";
+        blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/new/usuario="+jsonData.message.page.message[0].id_usuario+"tipodocumento=2\" class=\"btn btn-success\" role=\"button\">Crear Documento</a>&nbsp";
         blog += "<a href=\"http://localhost:8081/ausiasblog/#/documentocategoriaarticulo/new\" class=\"btn btn-success\" role=\"button\">Asignar Categoría</a>";
+        
         blog += "</div>";
         
+        blog += "</div>";
     }
     for (var i = 0; i < jsonData.message.page.message.length; i++) {
         blog += "<div class=\"row\">";
@@ -109,7 +110,7 @@ blogList.prototype.render = function() {
         blog += '</div>';
 
 
-        blog += '<a title="' + jsonData.message.page.message[i].titulo + '" href="http://localhost:8081/ausiasblog/#/documento/view/' + jsonData.message.page.message[i].id + '"><div class = "hover"><img src="images/imagen' + jsonData.message.page.message[i].id + '.jpg" alt="' + jsonData.message.page.message[i].titulo + '" class="img-responsive" /></div></a>';
+        blog += '<a title="' + jsonData.message.page.message[i].titulo + '" href="http://localhost:8081/ausiasblog/#/blog/view/' + jsonData.message.page.message[i].id + '"><div class = "hover"><img src="images/imagen' + jsonData.message.page.message[i].id + '.jpg" alt="' + jsonData.message.page.message[i].titulo + '" class="img-responsive" /></div></a>';
 
         blog += "</div>";
         ///fin titulo

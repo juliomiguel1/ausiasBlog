@@ -27,7 +27,17 @@
  */
 package net.daw.service.specific.implementation;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import net.daw.bean.specific.implementation.ComentarioBean;
+import net.daw.bean.specific.implementation.UsuarioBean;
+import net.daw.connection.implementation.BoneConnectionPoolImpl;
+import net.daw.dao.specific.implementation.ComentarioDao;
+import net.daw.helper.statics.ParameterCook;
 import net.daw.service.generic.implementation.TableServiceGenImpl;
 
 /**
@@ -40,4 +50,38 @@ public class ComentarioService extends TableServiceGenImpl {
         super(request);
     }
     
+      @Override
+    public String set() throws Exception {
+
+        UsuarioBean oUserBean = (UsuarioBean) oRequest.getSession().getAttribute("userBean");
+        int id_usuario = oUserBean.getId();
+
+        Connection oConnection = new BoneConnectionPoolImpl().newConnection();
+        ComentarioDao oComentarioDao = new ComentarioDao(oConnection);
+        ComentarioBean oComentarioBean = new ComentarioBean();
+        String json = ParameterCook.prepareJson(oRequest);
+        Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").excludeFieldsWithoutExposeAnnotation().create();
+
+        oComentarioBean = gson.fromJson(json, ComentarioBean.class);
+        oComentarioBean = oComentarioDao.set(oComentarioBean, id_usuario);
+
+        if (oComentarioBean.getId() != 0) {
+            
+            Map<String, String> data = new HashMap<>();
+            data.put("status", "200");
+            data.put("message", Integer.toString(oComentarioBean.getId()));
+            String resultado = gson.toJson(data);
+            return resultado;
+
+        } else {
+            
+            Map<String, String> data = new HashMap<>();
+            data.put("status", "500");
+            data.put("message", Integer.toString(oComentarioBean.getId()));
+            String resultado = gson.toJson(data);
+            return resultado;
+
+        }
+
+    }
 }
