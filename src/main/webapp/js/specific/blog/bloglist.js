@@ -25,12 +25,12 @@
  * THE SOFTWARE.
  * 
  */
-var blogList = function () {
+var blogList = function() {
 };
 blogList.prototype = new listModule();
 
 
-blogList.prototype.render = function () {
+blogList.prototype.render = function() {
 
     var cabecera = "";
     cabecera += "<div>";
@@ -96,16 +96,25 @@ blogList.prototype.render = function () {
         //lado izquierdo
         blog += "<div class=\"col-md-7 col-md-offset-1\">";
         ////titulo
-        blog += "<div class=\"titulo\">"
+        blog += "<div class=\"titulo\">";
+
         blog += "<h2>";
         blog += titulo;
         blog += "</h2>";
+
+        blog += '<div class = "datos">' + "Publicado el: " + jsonData.message.page.message[i].alta + "   |   ";
+        //autor += jsonData.message.page.message[i].autor;
+        blog += "Visitas: " + jsonData.message.page.message[i].hits;
+//                        entrada += "Tags: " + jsonData.message.page.message[i].etiquetas;
+        blog += '</div>';
+
+
+        blog += '<a title="' + jsonData.message.page.message[i].titulo + '" href="http://localhost:8081/ausiasblog/#/documento/view/' + jsonData.message.page.message[i].id + '"><div class = "hover"><img src="images/imagen' + jsonData.message.page.message[i].id + '.jpg" alt="' + jsonData.message.page.message[i].titulo + '" class="img-responsive" /></div></a>';
+
         blog += "</div>";
         ///fin titulo
         //fecha
         blog += "<div>";
-        fecha = jsonData.message.page.message[i].alta;
-        blog += fecha;
         blog += "</div>";
         //fin fecha
         //entrada

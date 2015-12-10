@@ -75,12 +75,18 @@ THE SOFTWARE.
     // font-size: 140%;
     font-weight: bold;
     color: black;
+    
 
+}
+
+.titulo > h2 {
+    margin-bottom: 35px;
 }
 
 .datos {
     text-align: right;
     margin: 1%;
+    margin-bottom: 20px;
 }
 .categoria {
     width: 30%;
@@ -136,6 +142,15 @@ a{
     overflow: hidden;
 }
 
+.datos {
+    text-align: left;
+    font-size: 16px;
+    margin: 1%;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin-bottom: 25px;
+}
+
 .cabecera{
     padding-top: 40px;
     width: 80%;
@@ -165,6 +180,23 @@ a{
     width: 100%;
     clear: both;
     //border: 2px solid black;
+}
+
+.hover > img {
+    height: 300px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.hover > img:hover {
+
+    opacity: 0.4;
+
+}
+.hover {
+
+    background-color: #FF6600;
+
 }
 
 /*@media screen and (max-width: 770px) {
