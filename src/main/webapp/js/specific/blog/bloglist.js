@@ -155,11 +155,11 @@ blogList.prototype.render = function() {
             blog += "</div>";
 
             blog += "<div class=\"imagen\">";
-            blog += "imagen";
+            blog += '<img src="images/about.jpg" alt="" class="img-responsive" />"';
             blog += "</div>";
 
             blog += "<div>";
-            blog += "Párrafo. Haz clic aquí para agregar tu texto y editar. Permite que tus usuarios te conozcan.";
+            blog += "Somos una organización si ánimo de lucro, simplemente escribimos lo que se nos ocurre";
             blog += "</div>";
 
             blog += "<div style=\"padding-top:20px;\">";
