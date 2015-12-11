@@ -127,12 +127,12 @@ blogList.prototype.render = function() {
         blog += "</div>";
         //fin entrada
         //leer mas
-        blog += "<div class=\"leermas\">";
-        blog += "<a href=\"http://localhost:8081/ausiasblog/#/blog/view/" + jsonData.message.page.message[i].id + "\">Leer más...</a>";
-        blog += "</div>";
+//        blog += "<div class=\"leermas\">";
+//        blog += "<a href=\"http://localhost:8081/ausiasblog/#/blog/view/" + jsonData.message.page.message[i].id + "\">Leer más...</a>";
+//        blog += "</div>";
+        blog += "<a href=\"http://localhost:8081/ausiasblog/#/blog/view/" + jsonData.message.page.message[i].id + "\" class=\"leermas btn btn-success\" role=\"button\">Leer más</a>";
         if (11 == jsonData.message.page.message[i].id_usuario) {
             blog += "<div class=\"editar\">";
-
             blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/edit/" + jsonData.message.page.message[i].id + "\" class=\"btn btn-warning\" role=\"button\">Editar</a>";
             blog += "&nbsp";
             blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/remove/" + jsonData.message.page.message[i].id + "\" class=\"btn btn-danger\" role=\"button\">Eliminar</a>";

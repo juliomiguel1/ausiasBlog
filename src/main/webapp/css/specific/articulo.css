@@ -137,6 +137,12 @@ a{
     color: blue;
 }
 
+#imagenview {
+
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .entrada{
     clear: both;
     padding-bottom: 30px;
