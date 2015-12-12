@@ -67,14 +67,7 @@ public class ComentarioBean extends BeanGenImpl implements BeanInterface {
     )
     private String contenido;
 
-    @Expose
-    @MethodMetaInformation(
-            UltraShortName = "NomAut.",
-            ShortName = "Nombre Autor",
-            Description = "Nombre del autor del comentario",
-            Type = MetaEnum.FieldType.String
-    )
-    private String nombreautor;
+    
 
     @Expose(serialize = false)
     @MethodMetaInformation(
@@ -136,13 +129,7 @@ public class ComentarioBean extends BeanGenImpl implements BeanInterface {
         this.contenido = contenido;
     }
 
-    public String getNombreautor() {
-        return nombreautor;
-    }
 
-    public void setNombreautor(String nombreautor) {
-        this.nombreautor = nombreautor;
-    }
 
     public Integer getId_documento() {
         return id_documento;

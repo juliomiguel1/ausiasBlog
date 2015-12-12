@@ -85,7 +85,6 @@ public class ComentarioDao extends TableDaoGenImpl<ComentarioBean> {
 
              
                     oComentarioBean.setContenido(result.getString("contenido"));
-                    oComentarioBean.setNombreautor(result.getString("nombreautor"));
                     alComentarios.add(oComentarioBean);
                 }
             }
@@ -110,7 +109,6 @@ public class ComentarioDao extends TableDaoGenImpl<ComentarioBean> {
             oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "contenido", oComentarioBean.getContenido());
             oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "id_documento", oComentarioBean.getId_documento().toString());
             oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "id_usuario", oComentarioBean.getId_usuario().toString());
-            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "nombreAutor", oComentarioBean.getNombreautor());
 //            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "firma", oComentarioBean.get);
 //            oMysql.updateOne(oComentarioBean.getId(), strTableOrigin, "skin", oComentarioBean.getSkin());
 //            String prueba = oComentarioBean.getPassword();
