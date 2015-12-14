@@ -2,10 +2,10 @@
 -- version 4.4.13.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 08-12-2015 a las 12:33:16
+-- Servidor: localhost:3306
+-- Tiempo de generación: 14-12-2015 a las 03:44:33
 -- Versión del servidor: 5.6.26
--- Versión de PHP: 5.5.30
+-- Versión de PHP: 5.5.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -73,14 +73,14 @@ CREATE TABLE IF NOT EXISTS `comentario` (
 --
 
 INSERT INTO `comentario` (`id`, `contenido`, `nombreautor`, `id_documento`, `id_usuario`) VALUES
-(1, 'No me hace mucha gracia que te hagas amigo de mi hermana.', 'Nando Laorden', 2, NULL),
-(2, 'Crea tablas pa la estantería del vino', 'Iván García', 2, NULL),
-(3, 'Allahu Akbar', 'Santiago Ferrandis', 2, NULL),
-(4, 'Normalizao', 'Fernando Cantos', 2, NULL),
-(5, '¿Y la europea?', 'Mariano Rajoy', 2, NULL),
-(6, 'hola', 'adios', 4, NULL),
-(7, 'hola', 'adios', 29, NULL),
-(8, 'hola', 'adios', 36, NULL);
+(1, 'No me hace mucha gracia que te hagas amigo de mi hermana.', 'Nando Laorden', 2, 2),
+(2, 'Crea tablas pa la estantería del vino', 'Iván García', 2, 5),
+(3, 'Allahu Akbar', 'Santiago Ferrandis', 2, 11),
+(4, 'Normalizao', 'Fernando Cantos', 2, 4),
+(5, '¿Y la europea?', 'Mariano Rajoy', 2, 5),
+(6, 'hola', 'adios', 4, 1),
+(7, 'hola', 'adios', 29, 11),
+(8, 'hola', 'adios', 36, 7);
 
 -- --------------------------------------------------------
 
