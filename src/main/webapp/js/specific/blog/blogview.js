@@ -26,11 +26,11 @@
  * 
  */
 
-var blogView = function() {
+var blogView = function () {
 
 };
 blogView.prototype = new viewModule();
-blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule) {
+blogView.prototype.getViewTemplate_func = function (strClass, jsonDataViewModule) {
     var cabecera = "";
     cabecera += "<div >";
     cabecera += "<div class=\"cabecera\">";
@@ -50,13 +50,7 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
     var fecha = "";
     var tags = "";
 
-    blog += "<div class=\"row\">";
-    blog += "<div class=\"col-md-11 col-md-offset-1\">";
-    blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new/usuario=" + jsonDataViewModule.bean.message[0].id_login + "&documento=" + jsonDataViewModule.bean.message[0].id_documento + "\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
-    blog += "</div>";
-    blog += "</div>";
-
-    //  blog += "<div class=\"container\">"
+    // blog += "<div class=\"container\">"
     for (var i = 0; i < jsonDataViewModule.bean.message.length; i++) {
         blog += "<div class=\"row\">";
         blog += "<div class=\"col-md-10 col-md-offset-1\">";
@@ -68,51 +62,43 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
             titulo = jsonDataViewModule.bean.message[i].titulo;
             blog += titulo;
             blog += "</h2>";
-            blog += '<div id="imagenview"><img src="images/imagen' + jsonDataViewModule.bean.message[i].id_documento + '.jpg" alt="' + jsonDataViewModule.bean.message[i].titulo + '" class="img-responsive" /></div>';
             blog += "</div>";
+            blog += '<div id="imagenview"><img src="images/imagen' + jsonDataViewModule.bean.message[i].id_documento + '.jpg" alt="' + jsonDataViewModule.bean.message[i].titulo + '" class="img-responsive" /></div>';
             //fin del titulo
             blog += "</div>";
             blog += "</br>";
-            blog += "<div class=\"entrada1\">";
+            blog += "<div class=\"entrada\">";
             blog += "<h4>";
             entrada = jsonDataViewModule.bean.message[i].entrada;
             blog += entrada;
             blog += "</h4>";
             blog += "<div class=\"etiquetas\">";
-        tags = jsonDataViewModule.bean.message[i].etiquetas;
-        blog += tags;
-        blog += "</div>";
-        
-//            if (jsonDataViewModule.bean.message[i].id_login === 11) {
-//                blog += "<div class=\"editar\">";
-//                blog += "<a href=\"http://localhost:8081/ausiasblog/#/documento/edit/"+jsonDataViewModule.bean.message[i].id_documento+"\">Editar</a>";
-//                blog += "</div>";
-//            }
+            tags = "Etiqueta/s: " + jsonDataViewModule.bean.message[i].etiquetas;
+            blog += tags;
             blog += "</div>";
-             blog += '<h2>Comentarios</h2>';
+            blog += "</div>";
+            blog += '<h2>Comentarios</h2>';
             blogpintado++;
         }
         //fin del col-md-7
 
-
-       
         blog += "<div class= \"comentario\">";
         comentario = jsonDataViewModule.bean.message[i].comentario;
         blog += "<p>";
         blog += "<h4>";
         blog += comentario;
         blog += "</h4>";
-        blog += "</p>";       
+        blog += "</p>";
         blog += "<div class=\"autor\">";
         tags = jsonDataViewModule.bean.message[i].nombreautor;
         blog += tags;
         blog += "</div>";
         blog += "</div>";
-       
-        if(jsonDataViewModule.bean.message[i].usuariocomentario === jsonDataViewModule.bean.message[i].id_login){
-            
+
+        if (jsonDataViewModule.bean.message[i].usuariocomentario === jsonDataViewModule.bean.message[i].id_login) {
+
             blog += "<div class=\"editarcomentario\">";
-            blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/edit/" + jsonDataViewModule.bean.message[i].id_comentario + "\">Editar...</a>";
+            blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/edit/" + jsonDataViewModule.bean.message[i].id_comentario + "\" class=\"btn btn-success\" role=\"button\">Editar Comentario</a>";
             blog += "</div>";
         }
         blog += "</br>";
@@ -120,6 +106,10 @@ blogView.prototype.getViewTemplate_func = function(strClass, jsonDataViewModule)
         //fin del row
         blog += "</div>";
     }
+    
+    blog += "<div class=\"botoncom\">";
+    blog += "<a href=\"http://localhost:8081/ausiasblog/#/comentario/new/usuario=" + jsonDataViewModule.bean.message[0].id_login + "&documento=" + jsonDataViewModule.bean.message[0].id_documento + "\" class=\"btn btn-success\" role=\"button\">Comentar</a>";
+    blog += "</div>";
 //    blog += "</div>";
     return blog;
 };

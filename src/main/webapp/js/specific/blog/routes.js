@@ -33,7 +33,6 @@ function fBlogRoutes() {
     var content = $('#broth_content');
 //--------------------------------------------------------------------------
    Path.map("#/" + strClass + "/list(/:url)").to(function () {
-       
         $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
       //  header.empty().append(fillDocumentoPageHeader('Articulos'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
@@ -52,7 +51,7 @@ function fBlogRoutes() {
     });*/
 //--------------------------------------------------------------------------
     Path.map("#/" + strClass + "/view/:id").to(function () {
-        $('<link href="css/specific/articulo.css" rel="stylesheet" type="text/css"/>').appendTo("head");
+        $('<link href="css/specific/view.css" rel="stylesheet" type="text/css"/>').appendTo("head");
       //  header.empty().append(fillDocumentoPageHeader('View'));
         var strParam = parameter.getUrlObjectFromUrlString(this.params['url']);
         ausiasFLOW.reset();
